@@ -17,4 +17,14 @@ describe("<Display />", () => {
         const wrapper = shallow(<Display />);
         expect(wrapper.find("div").children()).toHaveLength(1);
     });
+
+    // it("should have props.value", () => {
+    //     const wrapper = shallow(<Display value="Success" />);
+    //     expect(wrapper.prop("value")).toEqual("Success");
+    // });
+
+    it("renders the value as a string", () => {
+        const component = shallow(<Display value={`string`} />);
+        expect(component.props().children.props.children).toBe(`string`);
+    });
 });

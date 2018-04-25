@@ -34,8 +34,20 @@ describe("<App />", () => {
         expect(wrapper.state("operation")).toEqual(null);
     });
 
-    it("should have props on <Display/>", () => {
-        const wrapper = shallow(<App value="Success" />);
-        expect(wrapper.prop("value")).toEqual("Success");
+    it("should pass value into the next property", () => {
+        const wrapper = shallow(<App />);
+        wrapper.instance().handleClick("5");
+        expect(wrapper.state("next")).toEqual("5");
     });
 });
+
+// it('renders with className `component-button wide` when passed the `wide` prop', () => {
+//     const component = shallow(<Button wide/>);
+//     expect(component.find('.component-button')).toHaveLength(1);
+//     expect(component.find('.wide')).toHaveLength(1);
+// });
+
+// it("should have props on <Display/>", () => {
+//     const wrapper = shallow(<App value="Success" />);
+//     expect(wrapper.prop("value")).toEqual("Success");
+// });
